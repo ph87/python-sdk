@@ -37,7 +37,7 @@ class UpYun(object):
         self.secret = secret or os.getenv('UPYUN_SECRET')
         self.timeout = timeout or 60
         if read_timeout is not None:
-            self.requests_timeout = (self.timeout, read_timeout)
+            self.requests_timeout = self.read_timeout
         else:
             self.requests_timeout = self.timeout
         self.hp = UpYunHttp(self.requests_timeout, debug)
